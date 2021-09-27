@@ -11,6 +11,13 @@ program
     console.log(words);
   });
 
+program
+  .command('clear')
+  .description('clear all tasks')
+  .action((...args) => {
+    console.log('this is clear');
+  });
+
 program.parse(process.argv);
 
 console.log(program.xxx);
