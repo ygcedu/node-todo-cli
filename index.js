@@ -10,7 +10,26 @@ module.exports.add = (title) => {
     if (error) {
       console.log(error);
     } else {
-      console.log(data.toString());
+      let list;
+      try {
+        list = JSON.parse(data.toString());
+        console.log(list);
+      } catch (e) {
+        list = [];
+      }
+      console.log(list);
+      const task = {
+        title,
+        done: false
+      };
+      list.push(task);
+      const string = JSON.stringify(list);
+      fs.writeFile(dbPath, string + '\n', (error3) => {
+          if (error3) {
+            console.log(error3);
+          }
+        }
+      );
     }
   });
   // 往里面添加一个 title 任务

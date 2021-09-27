@@ -2,4 +2,5 @@ yarn init -y
 yarn add commander
 
 start ~  
-rm ~/.todo
+rm ~/.todo  
+cat ~/.todo
