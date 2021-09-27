@@ -1,23 +1,10 @@
-const program = require('commander');
+const homedir = require('os').homedir();
+const home = process.env.HOME || homedir;
 
-program
-  .option('-x, --xxx', 'what the x');
+module.exports.add = (title) => {
+  // 读取之前的任务
 
-program
-  .command('add')
-  .description('add a task')
-  .action((...args) => {
-    const words = args.slice(0, -1).join(' ');
-    console.log(words);
-  });
-
-program
-  .command('clear')
-  .description('clear all tasks')
-  .action((...args) => {
-    console.log('this is clear');
-  });
-
-program.parse(process.argv);
-
-console.log(program.xxx);
+  // 往里面添加一个 title 任务
+  
+  // 存储任务到文件
+};
