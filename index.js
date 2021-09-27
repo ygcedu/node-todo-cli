@@ -22,12 +22,22 @@ module.exports.showAll = async () => {
     type: 'list',
     name: 'index',
     message: '请选择你想要的任务',
-    choices: list.map((task, index) => {
-      return {
-        name: `${task.done ? '[x]' : '[_]'} ${index + 1} - ${task.title}`,
-        value: index
-      };
-    })
+    choices: [
+      {
+        name: '退出',
+        // value 必须是字符串
+        value: '-1'
+      },
+      ...list.map((task, index) => {
+        return {
+          name: `${task.done ? '[x]' : '[_]'} ${index + 1} - ${task.title}`,
+          value: index.toString()
+        };
+      }),
+      {
+        name: '+ 创建任务',
+        value: '-2'
+      }]
   }).then(answer => {
     console.log(answer.index);
   });
