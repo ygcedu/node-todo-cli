@@ -21,4 +21,4 @@ program
 
 program.parse(process.argv);
 
-console.log(program.xxx);
+// console.log(program.xxx);
