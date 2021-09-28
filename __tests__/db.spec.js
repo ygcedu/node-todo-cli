@@ -4,7 +4,10 @@ const fs = require('fs');
 jest.mock('fs');
 
 describe('db', () => {
-  it('can read', () => {
-    expect(fs.x()).toBe('xxx');
+  it('can read', async () => {
+    fs.setMock('/xxx', null, '[]');
+    const list = await db.read('./xxx');
+    // 对比对象属性值都相等时使用 toStrictEqual
+    expect(list).toStrictEqual([]);
   });
 });
