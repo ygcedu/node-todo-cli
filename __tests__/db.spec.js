@@ -4,6 +4,8 @@ const fs = require('fs');
 jest.mock('fs');
 
 describe('db', () => {
+  // 每个 it 测试代码执行完，都会调用 afterEach 定义的函数
+  afterEach(() => fs.clearMocks());
   it('can read', async () => {
     const data = [{title: 'hi', done: true}];
     fs.setReadFileMock('/xxx', null, JSON.stringify(data));
